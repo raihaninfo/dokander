@@ -1,20 +1,32 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
-	r := gin.Default()
+type application struct {
+	AppName string
+	Server  Server
+	Debug   bool
+	Engine  *gin.Engine
+}
 
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run() // listen and serve on
-	fmt.Println("server started")
+type Server struct {
+	Host string
+	Port string
+	Url  string
+}
+
+func main() {
+	app := application{
+		AppName: "web",
+		Server: Server{
+			Host: "localhost",
+			Port: "8080",
+			Url:  "http://localhost:8080",
+		},
+		Debug: true,
+	}
+	app.ListenAndServe()
 	// fmt.Println("Dokander software")
 }
