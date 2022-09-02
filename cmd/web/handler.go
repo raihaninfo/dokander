@@ -13,7 +13,7 @@ func (a *application) ping(c *gin.Context) {
 }
 
 func (a *application) homeHandler(c *gin.Context) {
-	c.HTML(http.StatusOK, "index.html", gin.H{
+	c.HTML(http.StatusOK, "index.gohtml", gin.H{
 		"title": "Home Page",
 	})
 }

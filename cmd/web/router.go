@@ -11,7 +11,7 @@ import (
 func (a *application) router() http.Handler {
 	r := gin.Default()
 	r.Use(static.Serve("/assets", static.LocalFile("./public", true)))
-	r.LoadHTMLGlob("views/*.html")
+	r.LoadHTMLGlob("views/*.gohtml")
 
 	r.GET("/ping", a.ping)
 	r.GET("/", a.homeHandler)
