@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/contrib/static"
@@ -10,14 +11,11 @@ import (
 func (a *application) router() http.Handler {
 	r := gin.Default()
 	r.Use(static.Serve("/assets", static.LocalFile("./public", true)))
+	r.LoadHTMLGlob("views/*.html")
 
-	// app.gin.LoadHTMLGlob("./ui/html/*.html")
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	r.GET("/ping", a.ping)
+	r.GET("/", a.homeHandler)
 
-	r.Run() // listen and serve on
+	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r
 }

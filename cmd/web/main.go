@@ -4,8 +4,6 @@ type application struct {
 	AppName string
 	Server  Server
 	Debug   bool
-	// Views
-
 }
 
 type Server struct {
@@ -16,7 +14,7 @@ type Server struct {
 
 func main() {
 	app := application{
-		AppName: "web",
+		AppName: "Dokander",
 		Server: Server{
 			Host: "localhost",
 			Port: "8080",
