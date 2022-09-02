@@ -1,14 +1,11 @@
 package main
 
-import (
-	"github.com/gin-gonic/gin"
-)
-
 type application struct {
 	AppName string
 	Server  Server
 	Debug   bool
-	Engine  *gin.Engine
+	// Views
+
 }
 
 type Server struct {
@@ -27,6 +24,7 @@ func main() {
 		},
 		Debug: true,
 	}
+
 	app.ListenAndServe()
 	// fmt.Println("Dokander software")
 }
