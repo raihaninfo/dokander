@@ -1,0 +1,68 @@
+{{template "Header"}}
+
+<body>
+    <div id="app">
+        {{template "Sidebar"}}
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Add Product</h3>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-9">
+                        <form action="" method="GET">
+                            <div class="form-floating mb-3">
+                                <input required type="text" class="form-control" id="name" placeholder="Product Name">
+                                <label for="name">Product Name</label>
+                            </div>
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input type="text" class="form-control" id="brand" placeholder="Brand (optional)">
+                                    <label for="brand">Brand (optional)</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input type="text" class="form-control" id="model" placeholder="Model">
+                                    <label for="model">Model (optional)</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input required type="text" class="form-control" id="product-type"
+                                        placeholder="Product Type (Ex: Mobile)">
+                                    <label for="product-type">Product Type (Required)</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input required type="number" class="form-control" id="quantity"
+                                        placeholder="Quantity">
+                                    <label for="quantity">Quantity (Required)</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input required type="number" class="form-control" id="pur-price"
+                                        placeholder="Purchases Price">
+                                    <label for="pur-price">Purchases Price (Required)</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input required type="number" class="form-control" id="sell-price"
+                                        placeholder="Sell Price">
+                                    <label for="sell-price">Sell Price (Required)</label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 col-6 mx-auto mb-3">
+                                <button class="btn btn-primary" type="submit">Add Product</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            {{template "Footer"}}

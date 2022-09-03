@@ -15,6 +15,9 @@ func (a *application) router() http.Handler {
 
 	r.GET("/ping", a.ping)
 	r.GET("/", a.homeHandler)
+	r.GET("/add-product", a.addProductHandler)
+	r.GET("/products", a.productsHandler)
+	r.GET("/stook-out", a.stookOutHandler)
 
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r
