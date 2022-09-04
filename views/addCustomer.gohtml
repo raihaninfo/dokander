@@ -1,0 +1,61 @@
+{{template "Header"}}
+
+<body>
+    <div id="app">
+        {{template "Sidebar"}}
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Add Customer</h3>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-9">
+                        <form action="" method="GET">
+                            <div class="form-floating mb-3">
+                                <input required type="text" class="form-control" id="name" placeholder="Customer Name">
+                                <label for="name">Customer Name</label>
+                            </div>
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input required type="email" class="form-control" id="email"
+                                        placeholder="Brand (optional)">
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input type="text" class="form-control" id="mobile" placeholder="Model">
+                                    <label for="mobile">Mobile</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input required type="date" class="form-control" id="dob"
+                                        placeholder="Date Of Birth">
+                                    <label for="dob">Date Of Birth</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input required type="text" class="form-control" id="reference"
+                                        placeholder="Reference">
+                                    <label for="reference">Reference</label>
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input required type="number" class="form-control" id="address" placeholder="Address">
+                                <label for="address">Address</label>
+                            </div>
+
+                            <div class="d-grid gap-2 col-6 mx-auto mb-3">
+                                <button class="btn btn-primary" type="submit">Add Customer</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            {{template "Footer"}}

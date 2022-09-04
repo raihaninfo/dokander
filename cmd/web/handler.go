@@ -35,3 +35,9 @@ func (a *application) stookOutHandler(c *gin.Context) {
 		"title": "Stook Out",
 	})
 }
+
+func (a *application) addCustomerHandler(c *gin.Context) {
+	c.HTML(http.StatusOK, "addCustomer.gohtml", gin.H{
+		"title": "Add Customer",
+	})
+}
