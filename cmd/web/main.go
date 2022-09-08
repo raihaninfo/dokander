@@ -1,13 +1,19 @@
 package main
 
 import (
+	"fmt"
+	"log"
+
 	"github.com/gin-gonic/gin"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 type application struct {
 	AppName string
 	Server  Server
 	Debug   bool
+	db      *gorm.DB
 }
 
 type Server struct {
@@ -17,6 +23,11 @@ type Server struct {
 }
 
 func main() {
+	db, err := openDB()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	app := application{
 		AppName: "Dokander",
 		Server: Server{
@@ -25,10 +36,18 @@ func main() {
 			Url:  "http://localhost:8080",
 		},
 		Debug: true,
+		db:    db,
 	}
 	if !app.Debug {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
 	app.ListenAndServe()
+}
+
+func openDB() (*gorm.DB, error) {
+	psqInfo := fmt.Sprintf("host=%s port=%v user=%s password=%s dbname=%s sslmode=disable", "localhost", 5432, "dev", "secret", "dokander")
+
+	db, err := gorm.Open(postgres.Open(psqInfo), &gorm.Config{})
+	return db, err
 }
