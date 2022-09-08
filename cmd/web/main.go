@@ -1,5 +1,7 @@
 package main
 
+import "github.com/gin-gonic/gin"
+
 type application struct {
 	AppName string
 	Server  Server
@@ -22,7 +24,9 @@ func main() {
 		},
 		Debug: true,
 	}
+	if !app.Debug {
+		gin.SetMode(gin.ReleaseMode)
+	}
 
 	app.ListenAndServe()
-	// fmt.Println("Dokander software")
 }
