@@ -15,7 +15,6 @@ func (a *application) router() http.Handler {
 	r.LoadHTMLGlob("views/*.gohtml")
 
 	r.NoRoute(a.notFound)
-	r.GET("/ping", a.ping)
 	r.GET("/", a.homeHandler)
 	r.GET("/add-product", a.addProductHandler)
 	r.POST("/add-product", a.addProductPostHandler)

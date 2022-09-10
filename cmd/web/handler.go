@@ -8,12 +8,6 @@ import (
 	"github.com/raihaninfo/dokander/models"
 )
 
-func (a *application) ping(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": a.AppName,
-	})
-}
-
 func (a *application) notFound(c *gin.Context) {
 	c.HTML(http.StatusNotFound, "404.gohtml", nil)
 }
