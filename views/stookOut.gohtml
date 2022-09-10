@@ -25,35 +25,32 @@
                                     <th>Model</th>
                                     <th>Product Type</th>
                                     <th>Quantity</th>
-                                    <th>Purchases</th>
-                                    <th>Sell</th>
+                                    <th>Purchases Price</th>
+                                    <th>Sell Price</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>5-5-525</td>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>Donna Snider</td>
-                                    <td>Donna Snider</td>
-                                    <td>Customer Support</td>
-                                    <td>New York</td>
-                                    <td>27</td>
-                                    <td>2011-01-25</td>
-                                    <td>$112,000</td>
-                                    <td>$112,000</td>
-                                </tr>
+                                {{range .}}
+                                    {{if lt .Quantity 5}}
+                                        <tr>
+                                            <td>{{.PurchasesDate}}</td>
+                                            <td>{{.ProductName}}</td>
+                                            <td>{{.Brand}}</td>
+                                            <td>{{.Model}}</td>
+                                            <td>{{.ProductType}}</td>
+                                            <td>{{.Quantity}}</td>
+                                            <td>{{.PurchasesAmount}}</td>
+                                            <td>{{.SellAmount}}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    {{end}}
+                                
+                                {{end}}
                             </tbody>
-
                         </table>
                     </div>
                 </section>

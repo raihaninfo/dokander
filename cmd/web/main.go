@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	"github.com/raihaninfo/dokander/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -27,7 +28,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// db.AutoMigrate(&models.Products{}, &models.Customers{})
+	db.AutoMigrate(&models.Products{})
 
 	app := application{
 		AppName: "Dokander",

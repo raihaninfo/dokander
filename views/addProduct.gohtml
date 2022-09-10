@@ -16,30 +16,30 @@
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
-                        <form action="" method="GET">
+                        <form action="/add-product" method="POST">
                             <div class="form-floating mb-3">
-                                <input required type="text" class="form-control" id="name" placeholder="Product Name">
+                                <input name="name" required type="text" class="form-control" id="name" placeholder="Product Name">
                                 <label for="name">Product Name</label>
                             </div>
                             <div class="row">
                                 <div class="form-floating mb-3 col">
-                                    <input type="text" class="form-control" id="brand" placeholder="Brand (optional)">
+                                    <input name="brand" type="text" class="form-control" id="brand" placeholder="Brand (optional)">
                                     <label for="brand">Brand (optional)</label>
                                 </div>
                                 <div class="form-floating mb-3 col">
-                                    <input type="text" class="form-control" id="model" placeholder="Model">
+                                    <input name="model" type="text" class="form-control" id="model" placeholder="Model">
                                     <label for="model">Model (optional)</label>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-floating mb-3 col">
-                                    <input required type="text" class="form-control" id="product-type"
+                                    <input name="type" required type="text" class="form-control" id="product-type"
                                         placeholder="Product Type (Ex: Mobile)">
                                     <label for="product-type">Product Type (Required)</label>
                                 </div>
                                 <div class="form-floating mb-3 col">
-                                    <input required type="number" class="form-control" id="quantity"
+                                    <input name="quantity" required type="number" class="form-control" id="quantity"
                                         placeholder="Quantity">
                                     <label for="quantity">Quantity (Required)</label>
                                 </div>
@@ -47,15 +47,23 @@
 
                             <div class="row">
                                 <div class="form-floating mb-3 col">
-                                    <input required type="number" class="form-control" id="pur-price"
+                                    <input name="purchases_price" required type="number" class="form-control" id="pur-price"
                                         placeholder="Purchases Price">
                                     <label for="pur-price">Purchases Price (Required)</label>
                                 </div>
                                 <div class="form-floating mb-3 col">
-                                    <input required type="number" class="form-control" id="sell-price"
+                                    <input name="sell_price" required type="number" class="form-control" id="sell-price"
                                         placeholder="Sell Price">
                                     <label for="sell-price">Sell Price (Required)</label>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-floating mb-3 col-6">
+                                    <input name="purchases_date" required type="date" class="form-control" id="pur-price"
+                                        placeholder="Purchases Price">
+                                    <label for="pur-price">Purchases Date (Required)</label>
+                                </div>
+                                
                             </div>
 
                             <div class="d-grid gap-2 col-6 mx-auto mb-3">

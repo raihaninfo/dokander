@@ -2,6 +2,7 @@ package models
 
 type Products struct {
 	Id              int `gorm:"primaryKey;autoIncrement:true;unique"`
+	ShopId          int
 	PurchasesDate   string
 	ProductName     string
 	Brand           string `gorm:"nullable"`
