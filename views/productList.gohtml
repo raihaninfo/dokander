@@ -12,6 +12,7 @@
 
             <div class="page-heading">
                 <h3>Products List</h3>
+                <h3><a class="btn btn-primary" href="/add-product">Add Product</a></h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -42,7 +43,7 @@
                                     <td>{{.PurchasesAmount}}</td>
                                     <td>{{.SellAmount}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="/products/update/{{.Id}}" class="btn btn-sm btn-primary">Edit</a>
                                         <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>

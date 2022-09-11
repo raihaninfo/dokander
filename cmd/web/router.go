@@ -19,6 +19,7 @@ func (a *application) router() http.Handler {
 	r.GET("/add-product", a.addProductHandler)
 	r.POST("/add-product", a.addProductPostHandler)
 	r.GET("/products", a.productsHandler)
+	r.GET("/products/update/:id", a.productsUpdateHandler)
 	r.GET("/stook-out", a.stookOutHandler)
 	r.GET("/add-customer", a.addCustomerHandler)
 

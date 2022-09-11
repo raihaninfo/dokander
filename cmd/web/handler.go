@@ -25,7 +25,7 @@ func (a *application) addProductHandler(c *gin.Context) {
 }
 
 func (a *application) addProductPostHandler(c *gin.Context) {
-	shopId := 5
+	shopId := 8
 	name := c.Request.FormValue("name")
 	brand := c.Request.FormValue("brand")
 	model := c.Request.FormValue("model")
@@ -44,8 +44,6 @@ func (a *application) addProductPostHandler(c *gin.Context) {
 	c.Bind(products)
 
 	a.db.Create(&products)
-	c.JSON(http.StatusOK, products)
-	c.Header("Location", "/cmd")
 	c.Redirect(http.StatusSeeOther, "/products")
 }
 
@@ -53,6 +51,13 @@ func (a *application) productsHandler(c *gin.Context) {
 	products := []models.Products{}
 	a.db.Find(&products)
 	c.HTML(http.StatusOK, "productList.gohtml", products)
+}
+
+func (a *application) productsUpdateHandler(c *gin.Context) {
+	product := models.Products{}
+	id := c.Param("id")
+	a.db.Find(&product, id)
+	c.HTML(http.StatusOK, "updateProduct.gohtml", product)
 }
 
 func (a *application) stookOutHandler(c *gin.Context) {
