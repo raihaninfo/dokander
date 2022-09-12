@@ -48,7 +48,7 @@ func main() {
 }
 
 func openDB() (*gorm.DB, error) {
-	psqInfo := fmt.Sprintf("host=%s port=%v user=%s password=%s dbname=%s sslmode=disable", "localhost", 5432, "dev", "secret", "dokander")
+	psqInfo := fmt.Sprintf("host=%s port=%v user=%s password=%s dbname=%s sslmode=disable", "localhost", 5432, "raihaninfo", "secret", "dokander")
 
 	db, err := gorm.Open(postgres.Open(psqInfo), &gorm.Config{})
 	return db, err
