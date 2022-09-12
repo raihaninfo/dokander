@@ -16,9 +16,8 @@
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
-                        <form action="/add-product" method="POST">
-
-
+                        <form action="/products/update/{{.Id}}" method="POST">
+                        <input type="hidden" name="id" value="{{.Id}}">
                             <div class="form-floating mb-3">
                                 <input name="name" required type="text" class="form-control" value="{{.ProductName}}" id="name" placeholder="Product Name">
                                 <label for="name">Product Name</label>

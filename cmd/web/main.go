@@ -28,9 +28,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// db.Statement.SQL.Reset()
-	// db.Commit().Statement.SQL.Reset()
-	// db.Debug().Statement.SQL.Reset()
 	db.AutoMigrate(&models.Products{})
 
 	app := application{
