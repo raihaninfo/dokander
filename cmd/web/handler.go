@@ -132,3 +132,11 @@ func (a *application) customers(c *gin.Context) {
 	a.db.Find(&customers)
 	c.HTML(http.StatusOK,"customersList.gohtml", customers)
 }
+
+func (a *application)customerUpdate(c *gin.Context){
+	id:= c.Param("id")
+	customer:= models.Customers{}
+	a.db.Find(&customer, id)
+
+	c.HTML(http.StatusOK, "updateCustomer.gohtml", customer)
+}
