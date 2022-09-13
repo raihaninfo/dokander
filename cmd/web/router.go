@@ -26,6 +26,7 @@ func (a *application) router() http.Handler {
 	r.POST("/add-customer", a.addCustomerPostHandler)
 	r.GET("/customers", a.customers)
 	r.GET("/customer/update/:id", a.customerUpdate)
+	r.POST("/customer/update/:id", a.customerPostUpdate)
 
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r

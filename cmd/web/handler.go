@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -62,7 +61,7 @@ func (a *application) productsUpdateHandler(c *gin.Context) {
 }
 
 func (a *application) productsUpdateAuthHandler(c *gin.Context) {
-	productId := c.Request.FormValue("id")
+	// productId := c.Request.FormValue("id")
 	name := c.Request.FormValue("name")
 	brand := c.Request.FormValue("brand")
 	model := c.Request.FormValue("model")
@@ -71,7 +70,7 @@ func (a *application) productsUpdateAuthHandler(c *gin.Context) {
 	purchasePrice := c.Request.FormValue("purchases_price")
 	sellPrice := c.Request.FormValue("sell_price")
 	purchaseDate := c.Request.FormValue("purchases_date")
-	fmt.Println(productId, name, brand, model, productType, quantity, purchasePrice, sellPrice, purchaseDate)
+	// fmt.Println(productId, name, brand, model, productType, quantity, purchasePrice, sellPrice, purchaseDate)
 
 	id := c.Param("id")
 	var products models.Products
@@ -128,15 +127,42 @@ func (a *application) addCustomerPostHandler(c *gin.Context) {
 }
 
 func (a *application) customers(c *gin.Context) {
-	customers:= []models.Customers{}
+	customers := []models.Customers{}
 	a.db.Find(&customers)
-	c.HTML(http.StatusOK,"customersList.gohtml", customers)
+	c.HTML(http.StatusOK, "customersList.gohtml", customers)
 }
 
-func (a *application)customerUpdate(c *gin.Context){
-	id:= c.Param("id")
-	customer:= models.Customers{}
+func (a *application) customerUpdate(c *gin.Context) {
+	id := c.Param("id")
+	customer := models.Customers{}
 	a.db.Find(&customer, id)
 
 	c.HTML(http.StatusOK, "updateCustomer.gohtml", customer)
+}
+
+func (a *application) customerPostUpdate(c *gin.Context) {
+	// customerId:= c.Request.FormValue("id")
+	name := c.Request.FormValue("name")
+	email := c.Request.FormValue("email")
+	mobile := c.Request.FormValue("mobile")
+	dateOfBirth := c.Request.FormValue("date")
+	reference := c.Request.FormValue("reference")
+	address := c.Request.FormValue("address")
+
+	id := c.Param("id")
+	var customers models.Customers
+	if err := a.db.Where("id = ?", id).First(&customers).Error; err != nil {
+		c.AbortWithStatus(http.StatusNotFound)
+		return
+	}
+	customers.Name = name
+	customers.Email = email
+	customers.Mobile = mobile
+	customers.DateOfBirth = dateOfBirth
+	customers.Reference = reference
+	customers.Address = address
+
+	c.Bind(&customers)
+	a.db.Save(&customers)
+	c.Redirect(http.StatusSeeOther, "/customers")
 }

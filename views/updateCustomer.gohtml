@@ -16,7 +16,8 @@
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
-                        <form action="/add-customer" method="POST">
+                        <form action="/customer/update/{{.Id}}" method="POST">
+                           <input type="hidden" value="{{.Id}}" name="id">
                             <div class="form-floating mb-3">
                                 <input required value="{{.Name}}" name="name" type="text" class="form-control" id="name" placeholder="Customer Name">
                                 <label for="name">Customer Name</label>
