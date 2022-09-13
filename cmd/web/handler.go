@@ -61,7 +61,6 @@ func (a *application) productsUpdateHandler(c *gin.Context) {
 }
 
 func (a *application) productsUpdateAuthHandler(c *gin.Context) {
-	// productId := c.Request.FormValue("id")
 	name := c.Request.FormValue("name")
 	brand := c.Request.FormValue("brand")
 	model := c.Request.FormValue("model")
@@ -70,7 +69,6 @@ func (a *application) productsUpdateAuthHandler(c *gin.Context) {
 	purchasePrice := c.Request.FormValue("purchases_price")
 	sellPrice := c.Request.FormValue("sell_price")
 	purchaseDate := c.Request.FormValue("purchases_date")
-	// fmt.Println(productId, name, brand, model, productType, quantity, purchasePrice, sellPrice, purchaseDate)
 
 	id := c.Param("id")
 	var products models.Products
@@ -117,7 +115,6 @@ func (a *application) addCustomerPostHandler(c *gin.Context) {
 	dateOfBirth := c.Request.FormValue("date")
 	reference := c.Request.FormValue("reference")
 	address := c.Request.FormValue("address")
-
 	customer := models.Customers{ShopId: shopId, Name: name, Email: email, Mobile: mobile, DateOfBirth: dateOfBirth, Reference: reference, Address: address}
 
 	c.Bind(customer)
@@ -136,12 +133,10 @@ func (a *application) customerUpdate(c *gin.Context) {
 	id := c.Param("id")
 	customer := models.Customers{}
 	a.db.Find(&customer, id)
-
 	c.HTML(http.StatusOK, "updateCustomer.gohtml", customer)
 }
 
 func (a *application) customerPostUpdate(c *gin.Context) {
-	// customerId:= c.Request.FormValue("id")
 	name := c.Request.FormValue("name")
 	email := c.Request.FormValue("email")
 	mobile := c.Request.FormValue("mobile")
