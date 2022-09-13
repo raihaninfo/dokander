@@ -6,8 +6,9 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-var Salt string = "ThIsIsSecretFoRPasSwORdHaHiHu"
+var Salt string = "ThIsIsSecretFoRPasSwORForSecurity"
 
+// Generate password hash if password and confirm password is same 
 func GenerateHash(password, confirmPassword string) (string, error) {
 	var hashP string
 	if password == confirmPassword {
@@ -20,6 +21,7 @@ func GenerateHash(password, confirmPassword string) (string, error) {
 	return hashP, nil
 }
 
+// compare password from hash
 func CompareHash(hash, password string) (bool, error) {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password+Salt))
 	if err != nil {
