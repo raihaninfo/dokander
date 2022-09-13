@@ -109,3 +109,21 @@ func (a *application) addCustomerHandler(c *gin.Context) {
 		"title": "Add Customer",
 	})
 }
+
+func (a *application)addCustomerPostHandler(c *gin.Context){
+	shopId:= "1"
+	name:= c.Request.FormValue("name")
+	email:= c.Request.FormValue("email")
+	mobile:= c.Request.FormValue("mobile")
+	dateOfBirth:= c.Request.FormValue("date")
+	reference:= c.Request.FormValue("reference")
+	address:= c.Request.FormValue("address")
+	fmt.Println(shopId, name, email, mobile, dateOfBirth, reference, address)
+
+	customer:= models.Customers{ShopId: shopId, Name: name, Email: email, Mobile: mobile, DateOfBirth: dateOfBirth, Reference: reference, Address: address}
+
+	c.Bind(customer)
+	a.db.Create(&customer)
+	c.Redirect(http.StatusSeeOther, "/customers")
+
+}

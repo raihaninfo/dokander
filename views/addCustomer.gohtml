@@ -16,38 +16,38 @@
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
-                        <form action="" method="GET">
+                        <form action="/add-customer" method="POST">
                             <div class="form-floating mb-3">
-                                <input required type="text" class="form-control" id="name" placeholder="Customer Name">
+                                <input required name="name" type="text" class="form-control" id="name" placeholder="Customer Name">
                                 <label for="name">Customer Name</label>
                             </div>
                             <div class="row">
                                 <div class="form-floating mb-3 col">
-                                    <input required type="email" class="form-control" id="email"
+                                    <input required name="email" type="email" class="form-control" id="email"
                                         placeholder="Brand (optional)">
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="form-floating mb-3 col">
-                                    <input type="text" class="form-control" id="mobile" placeholder="Model">
+                                    <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Model">
                                     <label for="mobile">Mobile</label>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-floating mb-3 col">
-                                    <input required type="date" class="form-control" id="dob"
+                                    <input required name="date" type="date" class="form-control" id="dob"
                                         placeholder="Date Of Birth">
                                     <label for="dob">Date Of Birth</label>
                                 </div>
                                 <div class="form-floating mb-3 col">
-                                    <input required type="text" class="form-control" id="reference"
+                                    <input required name="reference" type="text" class="form-control" id="reference"
                                         placeholder="Reference">
                                     <label for="reference">Reference</label>
                                 </div>
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input required type="number" class="form-control" id="address" placeholder="Address">
+                                <input required name="address" type="text" class="form-control" id="address" placeholder="Address">
                                 <label for="address">Address</label>
                             </div>
 
