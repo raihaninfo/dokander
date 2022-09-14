@@ -1,0 +1,42 @@
+{{template "Header"}}
+
+<body>
+    <div id="app">
+        {{template "Sidebar"}}
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Add Rent</h3>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-9">
+                        <form action="/" method="POST">
+                            <div class="form-floating mb-3">
+                                <input name="month" required type="month" class="form-control" id="name" placeholder="Product Name">
+                                <label for="name">Month</label>
+                            </div>
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input name="amount" type="number" class="form-control" id="brand" placeholder="Pay Amount">
+                                    <label for="brand">Pay Amount</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input name="date" type="date" class="form-control" id="model" placeholder="Model">
+                                    <label for="model">Pay Date</label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 col-6 mx-auto mb-3">
+                                <button class="btn btn-primary" type="submit">Add Rent</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            {{template "Footer"}}

@@ -161,3 +161,29 @@ func (a *application) customerPostUpdate(c *gin.Context) {
 	a.db.Save(&customers)
 	c.Redirect(http.StatusSeeOther, "/customers")
 }
+
+
+func (a *application)shopRent(c *gin.Context){
+	c.HTML(http.StatusOK, "shopRent.gohtml", gin.H{
+
+	})
+}
+
+func (a *application)addShopRent(c *gin.Context){
+	c.HTML(http.StatusOK, "addShopRent.gohtml", gin.H{
+
+	})
+}
+
+func (a *application)addShopRentPost(c *gin.Context){
+	shopId := "1"
+	month:= c.Request.FormValue("month")
+	amount:= c.Request.FormValue("amount")
+	date:= c.Request.FormValue("date")
+
+	rent:= models.ShopRent{ShopId: shopId, Month: month, Amount: amount, PayDate: date}
+	c.Bind(&rent)
+	a.db.Create(&rent)
+	c.Redirect(http.StatusSeeOther, "/shop-rent")
+	
+}

@@ -28,6 +28,10 @@ func (a *application) router() http.Handler {
 	r.GET("/customer/update/:id", a.customerUpdate)
 	r.POST("/customer/update/:id", a.customerPostUpdate)
 
+	r.GET("/shop-rent", a.shopRent)
+	r.GET("/add-shop-rent", a.addShopRent)
+	r.GET("/add-shop-rent", a.addShopRentPost)
+
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r
 }
