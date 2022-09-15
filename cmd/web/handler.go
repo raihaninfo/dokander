@@ -184,7 +184,7 @@ func (a *application) addShopRentPost(c *gin.Context) {
 }
 
 func (a *application) salary(c *gin.Context) {
-	salary:= []models.Salary{}
+	salary := []models.Salary{}
 	a.db.Find(&salary)
 	c.HTML(http.StatusOK, "salary.gohtml", salary)
 }
@@ -208,4 +208,33 @@ func (a *application) addSalaryPost(c *gin.Context) {
 	}
 	c.Redirect(http.StatusSeeOther, "/salary")
 
+}
+
+func (a *application) utilityBill(c *gin.Context) {
+	bill:= []models.UtilityBill{}
+	a.db.Find(&bill)
+	c.HTML(http.StatusOK, "utilityBill.gohtml", bill)
+}
+
+func (a *application) addUtilityBill(c *gin.Context) {
+	c.HTML(http.StatusOK, "addUtilityBill.gohtml", gin.H{})
+}
+
+func (a *application) addUtilityBillPost(c *gin.Context) {
+	shopId:= "1"
+	note:= c.Request.FormValue("note")
+	billType:= c.Request.FormValue("bill-type")
+	billId:= c.Request.FormValue("bill-id")
+	month:= c.Request.FormValue("month")
+	amount:= c.Request.FormValue("amount")
+	payDate:= c.Request.FormValue("pay-date")
+
+	bill:= models.UtilityBill{ShopId: shopId, Note: note, BillType: billType, BillId: billId, Month: month, Amount: amount, PayDate: payDate}
+
+	c.Bind(&bill)
+	err:= a.db.Create(&bill).Error
+	if err!=nil{
+		log.Fatal(err)
+	}
+	c.Redirect(http.StatusSeeOther, "/utility-bill")
 }

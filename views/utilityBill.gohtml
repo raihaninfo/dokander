@@ -11,8 +11,8 @@
             </header>
 
             <div class="page-heading">
-                <h3>Employ Salary</h3>
-                <h3><a class="btn btn-primary" href="/add-salary">Add Salary</a></h3>
+                <h3>Utility Bill</h3>
+                <h3><a class="btn btn-primary" href="/add-utility-bill">Add Bill</a></h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -20,10 +20,13 @@
                         <table id="example" class="table table-striped mb-3" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>EmployName</th>
+                                    <th>Bill Type</th>
+                                    <th>Bill Id</th>
+                                    <th>Pay Date</th>
                                     <th>Month</th>
                                     <th>Amount</th>
-                                    <th>Pay Date</th>
+                                    
+                                    <th>Note</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -31,10 +34,13 @@
                                 
                                 {{range .}}
                                 <tr>
-                                    <td>{{.EmployName}}</td>
+                                    <td>{{.BillType}}</td>
+                                    <td>{{.BillId}}</td>
+                                    <td>{{.PayDate}}</td>
                                     <td>{{.Month}}</td>
                                     <td>{{.Amount}}</td>
-                                    <td>{{.PayDate}}</td>
+                                    <td>{{.Note}}</td>
+                                  
                                 
                                     <td>
                                         <a href="/customer/update/" class="btn btn-sm btn-primary">Edit</a>
