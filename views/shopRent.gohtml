@@ -28,11 +28,11 @@
                             </thead>
                             <tbody>
                                 
-                                {{/* {{range .}} */}}
+                                {{range .}}
                                 <tr>
-                                    <td>jj</td>
-                                    <td>lsjdlf</td>
-                                    <td>lsjdlf</td>
+                                    <td>{{.Month}}</td>
+                                    <td>{{.Amount}}</td>
+                                    <td>{{.PayDate}}</td>
                                 
                                 
                                
@@ -41,7 +41,7 @@
                                         <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>
-                                {{/* {{end}} */}}
+                                {{end}}
                             </tbody>
 
                         </table>

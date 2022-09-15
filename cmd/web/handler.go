@@ -13,9 +13,7 @@ func (a *application) notFound(c *gin.Context) {
 }
 
 func (a *application) homeHandler(c *gin.Context) {
-	c.HTML(http.StatusOK, "index.gohtml", gin.H{
-		"title": "Home Page",
-	})
+	c.HTML(http.StatusOK, "index.gohtml", nil)
 }
 
 func (a *application) addProductHandler(c *gin.Context) {
@@ -164,9 +162,9 @@ func (a *application) customerPostUpdate(c *gin.Context) {
 
 
 func (a *application)shopRent(c *gin.Context){
-	c.HTML(http.StatusOK, "shopRent.gohtml", gin.H{
-
-	})
+	rent:= []models.ShopRent{}
+	a.db.Find(&rent)
+	c.HTML(http.StatusOK, "shopRent.gohtml", rent)
 }
 
 func (a *application)addShopRent(c *gin.Context){
