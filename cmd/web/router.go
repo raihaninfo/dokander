@@ -32,6 +32,10 @@ func (a *application) router() http.Handler {
 	r.GET("/add-shop-rent", a.addShopRent)
 	r.POST("/add-shop-rent", a.addShopRentPost)
 
+	r.GET("/salary", a.salary)
+	r.GET("/add-salary", a.addSalary)
+	r.POST("/add-salary", a.addSalaryPost)
+
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r
 }

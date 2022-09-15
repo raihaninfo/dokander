@@ -160,28 +160,52 @@ func (a *application) customerPostUpdate(c *gin.Context) {
 	c.Redirect(http.StatusSeeOther, "/customers")
 }
 
-
-func (a *application)shopRent(c *gin.Context){
-	rent:= []models.ShopRent{}
+func (a *application) shopRent(c *gin.Context) {
+	rent := []models.ShopRent{}
 	a.db.Find(&rent)
 	c.HTML(http.StatusOK, "shopRent.gohtml", rent)
 }
 
-func (a *application)addShopRent(c *gin.Context){
-	c.HTML(http.StatusOK, "addShopRent.gohtml", gin.H{
-
-	})
+func (a *application) addShopRent(c *gin.Context) {
+	c.HTML(http.StatusOK, "addShopRent.gohtml", gin.H{})
 }
 
-func (a *application)addShopRentPost(c *gin.Context){
+func (a *application) addShopRentPost(c *gin.Context) {
 	shopId := "1"
-	month:= c.Request.FormValue("month")
-	amount:= c.Request.FormValue("amount")
-	date:= c.Request.FormValue("date")
+	month := c.Request.FormValue("month")
+	amount := c.Request.FormValue("amount")
+	date := c.Request.FormValue("date")
 
-	rent:= models.ShopRent{ShopId: shopId, Month: month, Amount: amount, PayDate: date}
+	rent := models.ShopRent{ShopId: shopId, Month: month, Amount: amount, PayDate: date}
 	c.Bind(&rent)
 	a.db.Create(&rent)
 	c.Redirect(http.StatusSeeOther, "/shop-rent")
-	
+
+}
+
+func (a *application) salary(c *gin.Context) {
+	salary:= []models.Salary{}
+	a.db.Find(&salary)
+	c.HTML(http.StatusOK, "salary.gohtml", salary)
+}
+
+func (a *application) addSalary(c *gin.Context) {
+	c.HTML(http.StatusOK, "addSalary.gohtml", gin.H{})
+}
+
+func (a *application) addSalaryPost(c *gin.Context) {
+	shopId := "1"
+	name := c.Request.FormValue("name")
+	month := c.Request.FormValue("month")
+	amount := c.Request.FormValue("amount")
+	date := c.Request.FormValue("date")
+
+	salary := models.Salary{ShopId: shopId, EmployName: name, Month: month, Amount: amount, PayDate: date}
+	c.Bind(&salary)
+	err := a.db.Create(&salary).Error
+	if err != nil {
+		log.Fatal(err)
+	}
+	c.Redirect(http.StatusSeeOther, "/salary")
+
 }

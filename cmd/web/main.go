@@ -28,7 +28,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	db.AutoMigrate(&models.Products{}, &models.Customers{}, &models.ShopRent{})
+	db.AutoMigrate(&models.Products{}, &models.Customers{}, &models.ShopRent{}, &models.Salary{})
 
 	app := application{
 		AppName: "Dokander",
