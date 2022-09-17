@@ -53,3 +53,12 @@ type UtilityBill struct {
 	Amount   string
 	PayDate  string
 }
+
+type Entertainment struct {
+	Id      int `gorm:"primaryKey;autoIncrement:true;unique"`
+	ShopId  string
+	Purpose string
+	Amount  string
+	Date    string
+	Time    string
+}
