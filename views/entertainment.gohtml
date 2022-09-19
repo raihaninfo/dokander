@@ -1,0 +1,51 @@
+{{template "Header"}}
+
+<body>
+    <div id="app">
+        {{template "Sidebar"}}
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Entertainment Bill</h3>
+                <h3><a class="btn btn-primary" href="/add-entertainment-bill">Add Entertainment Bill</a></h3>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12">
+                        <table id="example" class="table table-striped mb-3" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Purpose</th>
+                                    <th>Amount</th>
+                                    <th>Pay Date</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                {{range .}}
+                                <tr>
+                                    <td>{{.Purpose}}</td>
+                                    <td>{{.Amount}}</td>
+                                    <td>{{.Date}}</td>
+                                    <td>{{.Time}}</td>
+                                  
+                                    <td>
+                                        <a href="/customer/update/" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                {{end}}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </section>
+            </div>
+            {{template "Footer"}}

@@ -1,0 +1,52 @@
+{{template "Header"}}
+
+<body>
+    <div id="app">
+        {{template "Sidebar"}}
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Add Utility Bill</h3>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-9">
+                        <form action="/add-entertainment-bill" method="POST">
+                            
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input name="purpose" type="text" class="form-control" id="brand" placeholder="Purpose">
+                                    <label for="brand">Purpose</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input name="amount" type="number" class="form-control" id="model" placeholder="Amount">
+                                    <label for="model">Amount</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-floating mb-3 col">
+                                    <input name="date" required type="date" class="form-control" id="product-type"
+                                        placeholder="Date">
+                                    <label for="product-type">Date</label>
+                                </div>
+                                <div class="form-floating mb-3 col">
+                                    <input name="time" required type="time" class="form-control" id="quantity"
+                                        placeholder="Time">
+                                    <label for="quantity">Time</label>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 col-6 mx-auto mb-3">
+                                <button class="btn btn-primary" type="submit">Add Bill</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            {{template "Footer"}}
