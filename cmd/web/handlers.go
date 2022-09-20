@@ -118,7 +118,6 @@ func (a *application) addCustomerPostHandler(c *gin.Context) {
 	c.Bind(customer)
 	a.db.Create(&customer)
 	c.Redirect(http.StatusSeeOther, "/customers")
-
 }
 
 func (a *application) customers(c *gin.Context) {
@@ -180,7 +179,6 @@ func (a *application) addShopRentPost(c *gin.Context) {
 	c.Bind(&rent)
 	a.db.Create(&rent)
 	c.Redirect(http.StatusSeeOther, "/shop-rent")
-
 }
 
 func (a *application) salary(c *gin.Context) {
@@ -244,9 +242,11 @@ func (a *application) entertainmentBill(c *gin.Context) {
 	a.db.Find(&bill)
 	c.HTML(http.StatusOK, "entertainment.gohtml", bill)
 }
+
 func (a *application) addEntertainmentBill(c *gin.Context) {
 	c.HTML(http.StatusOK, "addEntertainment.gohtml", gin.H{})
 }
+
 func (a *application) addEntertainmentBillPost(c *gin.Context) {
 	shopId := "1"
 	purpose := c.Request.FormValue("purpose")
