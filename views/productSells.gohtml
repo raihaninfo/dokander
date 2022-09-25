@@ -1,0 +1,110 @@
+{{template "Header"}}
+
+<body>
+    <div id="app">
+        {{template "Sidebar"}}
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Products Sales</h3>
+            </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Existing Customer <span><input type="checkbox" name="" id=""></span></p>
+            </div>
+        </div>
+        <form action="#">
+            <div class="row">
+                <div class="col-md-3">
+                    <input class="form-control" type="text" placeholder="Name" name="" id="">
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control" type="email" placeholder="Email" name="" id="">
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" placeholder="Mobile" name="" id="">
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" placeholder="Address" name="" id="">
+                </div>
+            </div>
+            <hr />
+
+            <div class="row">
+                <!-- table 6 colum -->
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Discount</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select class="form-control" name="" id="">
+                                        <option value="">Select Product</option>
+                                        <option value="">Product 1</option>
+                                        <option value="">Product 2</option>
+                                        <option value="">Product 3</option>
+                                        <option value="">Product 4</option>
+                                    </select>
+                                </td>
+                                <td><input class="form-control" type="text" name="" id=""></td>
+                                <td><input class="form-control" type="text" name="" id=""></td>
+                                <td><input class="form-control" type="text" name="" id=""></td>
+                                <td><input class="form-control" type="text" name="" id=""></td>
+                                <td><button class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
+                            </tr>
+                        </tbody>
+                        <button class="btn btn-primary float-end">Add</button>
+                    </table>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <!-- right side total and due form-->
+                <div class="col-md-3 offset-md-9">
+                    <div class="row">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">Paid Amount</span>
+                            <input type="number" class="form-control" placeholder="Amount" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="col-md-6">
+
+                            <p>Sub Total</p>
+                            <p>Discount</p>
+                            <p>Paid</p>
+                            <p>Due</p>
+                        </div>
+                        <div class="col-md-6">
+
+                            <p>0</p>
+                            <p>0</p>
+                            <p>0</p>
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="btn btn-primary" type="submit">Save & Sale</button>
+        </form>
+
+    </div>
+
+            {{template "Footer"}}
