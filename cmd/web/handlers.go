@@ -263,3 +263,7 @@ func (a *application) addEntertainmentBillPost(c *gin.Context) {
 	}
 	c.Redirect(http.StatusSeeOther, "/entertainment-bill")
 }
+
+func (a *application) productsSells(c *gin.Context) {
+	c.HTML(http.StatusOK, "productSells.gohtml", nil)
+}

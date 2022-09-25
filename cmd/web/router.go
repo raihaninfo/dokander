@@ -44,6 +44,9 @@ func (a *application) router() http.Handler {
 	r.GET("/add-entertainment-bill", a.addEntertainmentBill)
 	r.POST("/add-entertainment-bill", a.addEntertainmentBillPost)
 
+
+	r.GET("/sales", a.productsSells)
+
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r
 }
