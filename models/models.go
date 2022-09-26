@@ -62,3 +62,11 @@ type Entertainment struct {
 	Date    string
 	Time    string
 }
+
+type Sales struct {
+	Id          int `gorm:"primaryKey;autoIncrement:true;unique"`
+	CustomersId int
+	Product     string
+	PaidAmount  float64
+	DueAmount   float64
+}

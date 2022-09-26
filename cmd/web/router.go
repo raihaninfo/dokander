@@ -47,6 +47,8 @@ func (a *application) router() http.Handler {
 
 	r.GET("/sales", a.productsSells)
 
+	r.GET("/api/get-product", a.getProduct)
+
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r
 }

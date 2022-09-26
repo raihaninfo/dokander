@@ -40,7 +40,6 @@ func (a *application) addProductPostHandler(c *gin.Context) {
 
 	products := models.Products{PurchasesDate: purchaseDate, ShopId: shopId, ProductName: name, Brand: brand, Model: model, ProductType: productType, Quantity: quantityInt, PurchasesAmount: purchasePrice, SellAmount: sellPrice}
 	c.Bind(products)
-
 	a.db.Create(&products)
 	c.Redirect(http.StatusSeeOther, "/products")
 }
@@ -205,7 +204,6 @@ func (a *application) addSalaryPost(c *gin.Context) {
 		log.Fatal(err)
 	}
 	c.Redirect(http.StatusSeeOther, "/salary")
-
 }
 
 func (a *application) utilityBill(c *gin.Context) {
@@ -265,5 +263,15 @@ func (a *application) addEntertainmentBillPost(c *gin.Context) {
 }
 
 func (a *application) productsSells(c *gin.Context) {
-	c.HTML(http.StatusOK, "productSells.gohtml", nil)
+	c.HTML(http.StatusOK, "productSells.gohtml", gin.H{
+		"prod": "bb",
+	})
+}
+
+// /get-product endpoint return all customers in json format
+func (a *application) getProduct(c *gin.Context) {
+	customers := []models.Customers{}
+	a.db.Find(&customers)
+
+	c.JSON(200, customers)
 }
