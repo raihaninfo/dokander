@@ -26,7 +26,7 @@
                         <div class="col-md-3">
                             <input class="form-control" type="text" placeholder="Name" name="" id="product-name">
                             <select class="form-control" style="display:none ;" name="" id="select">
-                              
+
                             </select>
                         </div>
                         <div class="col-md-3">
@@ -44,7 +44,7 @@
                     <div class="row">
                         <!-- table 6 colum -->
                         <div class="col-md-12">
-                            <table class="table table-bordered">
+                            <table id="table" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th scope="col">Product</th>
@@ -56,7 +56,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+
+                                    <tr id="row1">
                                         <td>
                                             <select class="form-control" name="" id="">
                                                 <option value="">Select Product</option>
@@ -70,10 +71,11 @@
                                         <td><input class="form-control" type="text" name="" id=""></td>
                                         <td><input class="form-control" type="text" name="" id=""></td>
                                         <td><input class="form-control" type="text" name="" id=""></td>
-                                        <td><button class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
+                                        <td><button id="close-btn" class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
                                     </tr>
+
                                 </tbody>
-                                <button class="btn btn-primary float-end">Add</button>
+                                <button id="add" class="btn btn-primary float-end">Add</button>
                             </table>
 
                         </div>
