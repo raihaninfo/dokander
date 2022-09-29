@@ -35,7 +35,7 @@ func (a *application) router() http.Handler {
 	r.GET("/salary", a.salary)
 	r.GET("/add-salary", a.addSalary)
 	r.POST("/add-salary", a.addSalaryPost)
-	
+
 	r.GET("/utility-bill", a.utilityBill)
 	r.GET("/add-utility-bill", a.addUtilityBill)
 	r.POST("/add-utility-bill", a.addUtilityBillPost)
@@ -44,10 +44,15 @@ func (a *application) router() http.Handler {
 	r.GET("/add-entertainment-bill", a.addEntertainmentBill)
 	r.POST("/add-entertainment-bill", a.addEntertainmentBillPost)
 
-
 	r.GET("/sales", a.productsSells)
 
-	r.GET("/api/get-product", a.getProduct)
+	// api
+
+	api := r.Group("/api")
+	{
+		api.GET("/get-customers", a.getCustomers)
+		api.GET("/get-products", a.getProducts)
+	}
 
 	r.Run(fmt.Sprintf(":%v", a.Server.Port)) // listen and serve on
 	return r

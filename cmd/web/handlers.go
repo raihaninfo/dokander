@@ -268,10 +268,17 @@ func (a *application) productsSells(c *gin.Context) {
 	})
 }
 
-// /get-product endpoint return all customers in json format
-func (a *application) getProduct(c *gin.Context) {
+// /get-customers endpoint return all customers in json format
+func (a *application) getCustomers(c *gin.Context) {
 	customers := []models.Customers{}
 	a.db.Find(&customers)
 
 	c.JSON(200, customers)
+}
+
+// get-products endpoint return all product in json format
+func (a *application) getProducts(c *gin.Context) {
+	products := []models.Products{}
+	a.db.Find(&products)
+	c.JSON(http.StatusOK, products)
 }
