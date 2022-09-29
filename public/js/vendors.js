@@ -74,7 +74,10 @@ $("document").ready(function () {
         $("#table").append(html);
     });
 
-
+    //    // delete button on click event
+    $("#table").on("click", ".btn-danger", function () {
+        $(this).closest("tr").remove();
+    });
 
 });
 
