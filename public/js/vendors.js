@@ -58,24 +58,34 @@ $("document").ready(function () {
   });
 
   // add button on click event
-  $("#add").on("click", function () {
+
+  $("#add").on("click", function (event) {
+    event.preventDefault();
     let rowId = $("#table tr").length + 1;
+    // console.log(data2);
+
+    rowId = rowId + 1;
     html =
       `<tr id="` +
       rowId +
       `">
         <td>
             <select class="form-control" name="" id="">
-                <option value="">Select Product</option>
-                <option value="">Product 1</option>
-            </select>
-        </td>
+            "<option id='fist-select' value='none' selected>Select an Option</option>";
+            `
+    data2.forEach((item) => {
+
+      html += `<option value="${item.Id}">${item.ProductName}</option>
+            `
+    });
+    html += `</select> </td>
         <td><input class="form-control" type="text" name="" id=""></td>
         <td><input class="form-control" type="text" name="" id=""></td>
         <td><input class="form-control" type="text" name="" id=""></td>
         <td><input class="form-control" type="text" name="" id=""></td>
         <td><button class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
     </tr>`;
+
     $("#table").append(html);
   });
   //    // delete button on click event

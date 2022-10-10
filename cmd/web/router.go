@@ -47,7 +47,6 @@ func (a *application) router() http.Handler {
 	r.GET("/sales", a.productsSells)
 
 	// api
-
 	api := r.Group("/api")
 	{
 		api.GET("/get-customers", a.getCustomers)
