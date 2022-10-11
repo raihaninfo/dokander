@@ -35,11 +35,19 @@ $("document").ready(function () {
       $("#select").css("display", "block");
       // html attribute to disable the button
       $("#fist-select").prop("selected", true);
+      // disable the input field
+      $("#email").prop("disabled", true);
+      $("#mobile").prop("disabled", true);
+      $("#address").prop("disabled", true);
+
 
       console.log($("#select").val());
     } else {
       $("#select").css("display", "none");
       $("#product-name").css("display", "block");
+      $("#email").prop("disabled", false);
+      $("#mobile").prop("disabled", false);
+      $("#address").prop("disabled", false);
       $("#email").val("");
       $("#mobile").val("");
       $("#address").val("");
@@ -57,8 +65,18 @@ $("document").ready(function () {
     $("#address").val(address);
   });
 
-  // add button on click event
 
+  $(".product-option").on("change", function () {
+    let id = $(this).val();
+    id = parseInt(id);
+    // console.log(id);
+    let price = data2[id - 1].SellAmount;
+    console.log(price);
+
+  });
+
+
+  // add button on click event
   $("#add").on("click", function (event) {
     event.preventDefault();
     let rowId = $("#table tr").length + 1;
@@ -66,23 +84,21 @@ $("document").ready(function () {
 
     rowId = rowId + 1;
     html =
-      `<tr id="` +
-      rowId +
-      `">
+      `<tr id="` + rowId + `">
         <td>
-            <select class="form-control" name="" id="">
-            "<option id='fist-select' value='none' selected>Select an Option</option>";
-            `
+            <select class="form-control product-option" name="" id="` + rowId + 100 + `">
+            <option id='fist-select' value='none' selected>Select an Option</option>`
     data2.forEach((item) => {
 
-      html += `<option value="${item.Id}">${item.ProductName}</option>
-            `
+      html += `<option class="product-option" value="${item.Id}">${item.ProductName}</option>`
     });
+    // priceId
+    let priceId = "price" + rowId + 1;
     html += `</select> </td>
         <td><input class="form-control" type="text" name="" id=""></td>
+        <td><input class="form-control price" disabled type="text" name="" id="` + priceId + `"></td>
         <td><input class="form-control" type="text" name="" id=""></td>
-        <td><input class="form-control" type="text" name="" id=""></td>
-        <td><input class="form-control" type="text" name="" id=""></td>
+        <td><input class="form-control" disabled type="text" name="" id=""></td>
         <td><button class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
     </tr>`;
 
