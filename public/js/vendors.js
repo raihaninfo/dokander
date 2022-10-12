@@ -1,4 +1,5 @@
 let data = [];
+let data2 = [];
 let mapData = new Map();
 $("document").ready(function () {
   // ajax call to get the data
@@ -69,10 +70,8 @@ $("document").ready(function () {
   $(".product-option").on("change", function () {
     let id = $(this).val();
     id = parseInt(id);
-    // console.log(id);
-    let price = data2[id - 1].SellAmount;
-    console.log(price);
-
+    let price = data2.find((item) => item.Id === id).SellAmount;
+    $("#price").val(price);
   });
 
 
@@ -114,8 +113,8 @@ function generateOptions(data) {
   let html = "";
   html +=
     "<option id='fist-select' value='none' selected>Select an Option</option>";
-  data.forEach((item) => {
-    html += `<option value="${item.Id}">${item.Name}</option>`;
+  data.forEach((item3) => {
+    html += `<option value="${item3.Id}">${item3.Name}</option>`;
   });
   $("#select").append(html);
 }
