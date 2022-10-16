@@ -34,15 +34,11 @@ $("document").ready(function () {
     if (this.checked) {
       $("#product-name").css("display", "none");
       $("#select").css("display", "block");
-      // html attribute to disable the button
       $("#fist-select").prop("selected", true);
-      // disable the input field
       $("#email").prop("disabled", true);
       $("#mobile").prop("disabled", true);
       $("#address").prop("disabled", true);
 
-
-      console.log($("#select").val());
     } else {
       $("#select").css("display", "none");
       $("#product-name").css("display", "block");
@@ -69,24 +65,15 @@ $("document").ready(function () {
 
   $("body").on("change", ".product-option", function () {
     let trId = $(this).closest("tr").attr("id");
-    console.log(trId);
-
-
     let id = $(this).val();
     id = parseInt(id);
-    // console.log(id);
     let price = data2.find((item) => item.Id === id).SellAmount;
     $("#price" + trId).val(price);
-
-    // let trId = $(this).closest("tr").attr("id");
-    // let price2 = $("#price" + trId).val();
     let quantity = 1;
-    // let quantity = $(this).val();
     let total = price * quantity;
     $("#total" + trId).val(total);
     totalSum();
   });
-
 
   // keyup and change event for quantity
   $("body").on("keyup change", ".q", function () {
@@ -98,7 +85,6 @@ $("document").ready(function () {
     totalSum();
   });
 
-
   // total sum of all the rows
   function totalSum() {
     let sum = 0;
@@ -107,7 +93,6 @@ $("document").ready(function () {
     });
     $("#subTotal").text(sum);
   }
-
 
   // add button on click event
   $("#add").on("click", function (event) {
@@ -118,12 +103,6 @@ $("document").ready(function () {
       lastRowId = "0";
     }
     let lastRowIdInt = parseInt(lastRowId);
-    // if (lastRowIdInt == NaN) {
-    //   lastRowIdInt = 0;
-    // }
-    console.log(lastRowId);
-    // console.log(lastRowIdInt);
-    // console.log(lastRowIdInt);
     rowId = lastRowIdInt + 1;
 
     html =
