@@ -117,7 +117,7 @@ $("document").ready(function () {
     // priceId
     let priceId = "price" + rowId;
     html += `</select> </td>
-        <td><input class="form-control q" type="text" value="1" name="" id="q` + rowId + `"></td>
+        <td><input class="form-control q" type="number" value="1" name="" id="q` + rowId + `"></td>
         <td><input class="form-control price" disabled type="text" name="" id="` + priceId + `"></td>
         <td><input class="form-control" type="text" name="" id=""></td>
         <td><input class="form-control total" disabled type="text" name="" id="total` + rowId + `"></td>
