@@ -67,21 +67,65 @@ $("document").ready(function () {
   });
 
 
-  $(".product-option").on("change", function () {
+  $("body").on("change", ".product-option", function () {
+    let trId = $(this).closest("tr").attr("id");
+    console.log(trId);
+
+
     let id = $(this).val();
     id = parseInt(id);
+    // console.log(id);
     let price = data2.find((item) => item.Id === id).SellAmount;
-    $("#price").val(price);
+    $("#price" + trId).val(price);
+
+    // let trId = $(this).closest("tr").attr("id");
+    // let price2 = $("#price" + trId).val();
+    let quantity = 1;
+    // let quantity = $(this).val();
+    let total = price * quantity;
+    $("#total" + trId).val(total);
+    totalSum();
   });
+
+
+  // keyup and change event for quantity
+  $("body").on("keyup change", ".q", function () {
+    let trId = $(this).closest("tr").attr("id");
+    let price = $("#price" + trId).val();
+    let quantity = $(this).val();
+    let total = price * quantity;
+    $("#total" + trId).val(total);
+    totalSum();
+  });
+
+
+  // total sum of all the rows
+  function totalSum() {
+    let sum = 0;
+    $(".total").each(function () {
+      sum += +$(this).val();
+    });
+    $("#subTotal").text(sum);
+  }
 
 
   // add button on click event
   $("#add").on("click", function (event) {
     event.preventDefault();
-    let rowId = $("#table tr").length + 1;
-    // console.log(data2);
+    // last row id
+    let lastRowId = $("#table tr:last").attr("id");
+    if (lastRowId == undefined) {
+      lastRowId = "0";
+    }
+    let lastRowIdInt = parseInt(lastRowId);
+    // if (lastRowIdInt == NaN) {
+    //   lastRowIdInt = 0;
+    // }
+    console.log(lastRowId);
+    // console.log(lastRowIdInt);
+    // console.log(lastRowIdInt);
+    rowId = lastRowIdInt + 1;
 
-    rowId = rowId + 1;
     html =
       `<tr id="` + rowId + `">
         <td>
@@ -92,12 +136,12 @@ $("document").ready(function () {
       html += `<option class="product-option" value="${item.Id}">${item.ProductName}</option>`
     });
     // priceId
-    let priceId = "price" + rowId + 1;
+    let priceId = "price" + rowId;
     html += `</select> </td>
-        <td><input class="form-control" type="text" name="" id=""></td>
+        <td><input class="form-control q" type="text" value="1" name="" id="q` + rowId + `"></td>
         <td><input class="form-control price" disabled type="text" name="" id="` + priceId + `"></td>
         <td><input class="form-control" type="text" name="" id=""></td>
-        <td><input class="form-control" disabled type="text" name="" id=""></td>
+        <td><input class="form-control total" disabled type="text" name="" id="total` + rowId + `"></td>
         <td><button class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
     </tr>`;
 
@@ -106,6 +150,7 @@ $("document").ready(function () {
   //    // delete button on click event
   $("#table").on("click", ".btn-danger", function () {
     $(this).closest("tr").remove();
+    totalSum();
   });
 });
 
