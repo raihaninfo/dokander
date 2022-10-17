@@ -51,7 +51,7 @@
                                         <th scope="col">Product</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Discount</th>
+                                        <!-- <th scope="col">Discount</th> -->
                                         <th scope="col">Total</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -66,7 +66,7 @@
                                         </td>
                                         <td><input class="form-control q" type="number" value="1" name="" id="q1"></td>
                                         <td><input disabled class="form-control price" type="text" name="price" id="price1"></td>
-                                        <td><input class="form-control" type="text" name="" id=""></td>
+                                        <!-- <td><input class="form-control" type="text" name="" id=""></td> -->
                                         <td><input class="form-control total" value="" type="text" name="amount" disabled id="total1"></td>
                                         <td><button id="close-btn" class="btn btn-danger"><i
                                                     class="bi bi-x-circle"></i></button></td>
@@ -85,22 +85,27 @@
                             <div class="row">
                                 <div class="input-group flex-nowrap">
                                     <span class="input-group-text" id="addon-wrapping">Paid Amount</span>
-                                    <input type="number" class="form-control" placeholder="Amount" aria-label="Username"
+                                    <input type="number" id="paidAmount" class="form-control" placeholder="Amount" aria-label="Username"
                                         aria-describedby="addon-wrapping">
                                 </div>
+                                <!-- <div class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">Discount</span>
+                                    <input type="number" id="disAmount" class="form-control" placeholder="Amount" aria-label="Username"
+                                        aria-describedby="addon-wrapping">
+                                </div> -->
                                 <div class="col-md-6">
 
+                                    <!-- <p>Discount</p> -->
                                     <p>Sub Total</p>
-                                    <p>Discount</p>
                                     <p>Paid</p>
                                     <p>Due</p>
                                 </div>
                                 <div class="col-md-6">
 
+                                    <!-- <p id="discount">0</p> -->
                                     <p id="subTotal">0</p>
-                                    <p>0</p>
-                                    <p>0</p>
-                                    <p>0</p>
+                                    <p id="paid">0</p>
+                                    <p id="due">0</p>
                                 </div>
                             </div>
                         </div>

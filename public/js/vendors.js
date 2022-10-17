@@ -85,6 +85,17 @@ $("document").ready(function () {
     totalSum();
   });
 
+  // calculate due amount regarding paid amount
+  $("#paidAmount").on("keyup change", function () {
+    let paidAmount = $("#paidAmount").val();
+    let subtotal = $("#subTotal").text();
+    let dueAmount = subtotal - paidAmount;
+    $("#paid").text(paidAmount);
+    $("#due").text(dueAmount);
+  });
+
+
+
   // total sum of all the rows
   function totalSum() {
     let sum = 0;
@@ -119,7 +130,6 @@ $("document").ready(function () {
     html += `</select> </td>
         <td><input class="form-control q" type="number" value="1" name="" id="q` + rowId + `"></td>
         <td><input class="form-control price" disabled type="text" name="" id="` + priceId + `"></td>
-        <td><input class="form-control" type="text" name="" id=""></td>
         <td><input class="form-control total" disabled type="text" name="" id="total` + rowId + `"></td>
         <td><button class="btn btn-danger"><i class="bi bi-x-circle"></i></button></td>
     </tr>`;
