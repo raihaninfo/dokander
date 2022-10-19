@@ -1,2 +1,2 @@
 # dokander
-`dokander` is easy store management software for everyone
+`dokander` is easy store management software for everyone.
