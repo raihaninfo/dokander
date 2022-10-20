@@ -269,6 +269,13 @@ func (a *application) productsSells(c *gin.Context) {
 	})
 }
 
+// product sells router
+func (a *application) productsSellsPost(c *gin.Context) {
+	c.HTML(http.StatusOK, "productSells.gohtml", gin.H{
+		"prod": "bb",
+	})
+}
+
 // /get-customers endpoint return all customers in json format
 func (a *application) getCustomers(c *gin.Context) {
 	customers := []models.Customers{}

@@ -7,12 +7,12 @@
 ```bash
 ├── README.md
 ├── cmd
-|  └── web
-|     ├── main.go
-|     └── handler.go
-|     └── router.go
-|     └── server.go
-|     └── helpers.go
+│  └── web
+│     ├── main.go
+│     └── handler.go
+│     └── router.go
+│     └── server.go
+│     └── helpers.go
 ├── config
 │   └── .env
 ├── models
@@ -25,15 +25,15 @@
 ├── public
 │   ├── css
 │   └── images
-|   └── js
-|   └── vendor
+│   └── js
+│   └── vendor
 ├── views
 │   └── home.gohtml
-|   └── login.gohtml
-|   └── register.gohtml
-|   └── dashboard.gohtml
-|   └── products.gohtml
-|   └── etc...
+│   └── login.gohtml
+│   └── register.gohtml
+│   └── dashboard.gohtml
+│   └── products.gohtml
+│   └── etc...
 ├── .gitignore
 ├── .env
 ├── docker-compose.yml

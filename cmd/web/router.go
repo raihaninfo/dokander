@@ -45,6 +45,7 @@ func (a *application) router() http.Handler {
 	r.POST("/add-entertainment-bill", a.addEntertainmentBillPost)
 
 	r.GET("/sales", a.productsSells)
+	r.POST("/sales", a.productsSellsPost)
 
 	// api
 	api := r.Group("/api")
