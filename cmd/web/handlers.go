@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -271,9 +272,14 @@ func (a *application) productsSells(c *gin.Context) {
 
 // product sells router
 func (a *application) productsSellsPost(c *gin.Context) {
-	c.HTML(http.StatusOK, "productSells.gohtml", gin.H{
-		"prod": "bb",
-	})
+	name := c.Request.FormValue("cname")
+	selectName:= c.Request.FormValue("selectName")
+	email := c.Request.FormValue("cemail")
+	mobile := c.Request.FormValue("cmobile")
+	address := c.Request.FormValue("caddress")
+	fmt.Println("name", name)
+	fmt.Println(name, selectName, email, mobile, address)
+
 }
 
 // /get-customers endpoint return all customers in json format

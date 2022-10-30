@@ -21,23 +21,23 @@
                     </div>
                     <p style="display: none;" id="">{{.prod}}</p>
                 </div>
-                <form action="#">
+                <form method="POST" action="/sales">
                     <div class="row">
                         <div class="col-md-3">
-                            <input class="form-control" type="text" placeholder="Name" name="" id="product-name">
-                            <select class="form-control" style="display:none ;" name="" id="select">
+                            <input class="form-control" type="text" placeholder="Name" name="cname" id="cs-name">
+                            <select class="form-control" style="display:none ;" name="selectName" id="select">
 
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <input class="form-control" type="email" placeholder="Email" name="" id="email">
+                            <input class="form-control" type="email" placeholder="Email" name="cemail" id="email">
                         </div>
                         <div class="col-md-3">
-                            <input class="form-control" type="text" placeholder="Mobile" name="" id="mobile">
+                            <input class="form-control" type="text" placeholder="Mobile" name="cmobile" id="mobile">
                         </div>
                         <!-- disable  -->
                         <div class="col-md-3">
-                            <input class="form-control" type="text" placeholder="Address" name="" id="address">
+                            <input class="form-control" type="text" placeholder="Address" name="caddress" id="address">
                         </div>
                     </div>
                     <hr />
@@ -111,7 +111,7 @@
                         </div>
 
                     </div>
-                    <button class="btn btn-primary" type="submit">Save & Sale</button>
+                    <button id="submit" class="btn btn-primary" type="submit">Save & Sale</button>
                 </form>
 
             </div>

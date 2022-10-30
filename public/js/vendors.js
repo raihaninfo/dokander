@@ -32,7 +32,7 @@ $("document").ready(function () {
 
   $("#check").on("change", function () {
     if (this.checked) {
-      $("#product-name").css("display", "none");
+      $("#cs-name").css("display", "none");
       $("#select").css("display", "block");
       $("#fist-select").prop("selected", true);
       $("#email").prop("disabled", true);
@@ -41,7 +41,7 @@ $("document").ready(function () {
 
     } else {
       $("#select").css("display", "none");
-      $("#product-name").css("display", "block");
+      $("#cs-name").css("display", "block");
       $("#email").prop("disabled", false);
       $("#mobile").prop("disabled", false);
       $("#address").prop("disabled", false);
@@ -141,6 +141,77 @@ $("document").ready(function () {
     $(this).closest("tr").remove();
     totalSum();
   });
+
+
+  // prepare the data to send to the server
+  $("#submit").on("click", function (event) {
+    event.preventDefault();
+
+    // customer name check box is checked or not
+    let check = $("#check").is(":checked");
+
+    // if checked then get the customer id from the select option
+    let customerName;
+
+    if (check) {
+      customerName = $("#select option:selected").text();
+    } else {
+      customerName = $("#cs-name").val();
+    }
+
+    let customerEmail = $("#email").val();
+    let customerMobile = $("#mobile").val();
+    let customerAddress = $("#address").val();
+    let customerType = $("#check").is(":checked");
+    let customer = {
+      CustomerName: customerName,
+      Email: customerEmail,
+      Mobile: customerMobile,
+      Address: customerAddress,
+      CustomerType: customerType,
+    };
+    let products = [];
+    let product = {};
+    let rows = $("#table tr");
+    rows.each(function (index, item) {
+      if (index != 0) {
+        let productId = $(item).find(".product-option").val();
+        let quantity = $(item).find(".q").val();
+        let price = $(item).find(".price").val();
+        let total = $(item).find(".total").val();
+        product = {
+          ProductId: productId,
+          Quantity: quantity,
+          Price: price,
+          Total: total,
+        };
+        products.push(product);
+      }
+    });
+    let paidAmount = $("#paidAmount").val();
+    let data = {
+      Customer: customer,
+      Products: products,
+      PaidAmount: paidAmount,
+    };
+    console.log(data);
+    // $.ajax({
+    //   url: "/api/save-order",
+    //   type: "POST",
+    //   dataType: "json",
+    //   data: data,
+    //   success: function (data) {
+    //     console.log(data);
+    //   },
+    //   error: function (err) {
+    //     console.log(err);
+    //   },
+    // });
+  });
+
+
+
+
 });
 
 function generateOptions(data) {
