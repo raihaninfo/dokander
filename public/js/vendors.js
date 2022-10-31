@@ -194,6 +194,10 @@ $("document").ready(function () {
       Products: products,
       PaidAmount: paidAmount,
     };
+    // data convert to json
+    let jsonData = JSON.stringify(data);
+    // send data to the server
+    console.log(jsonData);
     console.log(data);
     // $.ajax({
     //   url: "/api/save-order",
