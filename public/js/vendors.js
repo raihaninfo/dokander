@@ -54,9 +54,9 @@ $("document").ready(function () {
   $("#select").on("change", function () {
     let id = $(this).val();
     id = parseInt(id);
-    let email = mapData.get(id).Email;
-    let mobile = mapData.get(id).Mobile;
-    let address = mapData.get(id).Address;
+    let email = mapData.get(id).email;
+    let mobile = mapData.get(id).mobile;
+    let address = mapData.get(id).address;
     $("#email").val(email);
     $("#mobile").val(mobile);
     $("#address").val(address);
@@ -67,7 +67,7 @@ $("document").ready(function () {
     let trId = $(this).closest("tr").attr("id");
     let id = $(this).val();
     id = parseInt(id);
-    let price = data2.find((item) => item.Id === id).SellAmount;
+    let price = data2.find((item) => item.id === id).sell_amount;
     $("#price" + trId).val(price);
     let quantity = 1;
     let total = price * quantity;
@@ -123,7 +123,7 @@ $("document").ready(function () {
             <option id='fist-select' value='none' selected>Select an Option</option>`
     data2.forEach((item) => {
 
-      html += `<option class="product-option" value="${item.Id}">${item.ProductName}</option>`
+      html += `<option class="product-option" value="${item.id}">${item.product_name}</option>`
     });
     // priceId
     let priceId = "price" + rowId;
@@ -164,11 +164,11 @@ $("document").ready(function () {
     let customerAddress = $("#address").val();
     let customerType = $("#check").is(":checked");
     let customer = {
-      CustomerName: customerName,
-      Email: customerEmail,
-      Mobile: customerMobile,
-      Address: customerAddress,
-      CustomerType: customerType,
+      customer_name: customerName,
+      email: customerEmail,
+      mobile: customerMobile,
+      address: customerAddress,
+      customer_type: customerType,
     };
     let products = [];
     let product = {};
@@ -180,19 +180,19 @@ $("document").ready(function () {
         let price = $(item).find(".price").val();
         let total = $(item).find(".total").val();
         product = {
-          ProductId: productId,
-          Quantity: quantity,
-          Price: price,
-          Total: total,
+          product_id: productId,
+          quantity: quantity,
+          price: price,
+          total: total,
         };
         products.push(product);
       }
     });
     let paidAmount = $("#paidAmount").val();
     let data = {
-      Customer: customer,
-      Products: products,
-      PaidAmount: paidAmount,
+      customer: customer,
+      products: products,
+      paid_amount: paidAmount,
     };
     // data convert to json
     let jsonData = JSON.stringify(data);
@@ -223,7 +223,7 @@ function generateOptions(data) {
   html +=
     "<option id='fist-select' value='none' selected>Select an Option</option>";
   data.forEach((item3) => {
-    html += `<option value="${item3.Id}">${item3.Name}</option>`;
+    html += `<option value="${item3.id}">${item3.name}</option>`;
   });
   $("#select").append(html);
 }
@@ -233,7 +233,7 @@ function generateProductOptions(data) {
   html +=
     "<option id='fist-select' value='none' selected>Select an Option</option>";
   data.forEach((item) => {
-    html += `<option value="${item.Id}">${item.ProductName}</option>`;
+    html += `<option value="${item.id}">${item.product_name}</option>`;
   });
   $("#product-option").append(html);
 }
@@ -241,7 +241,7 @@ function generateProductOptions(data) {
 function generateMap(data) {
   let tem = new Map();
   for (let i = 0; i < data.length; i++) {
-    tem.set(data[i].Id, data[i]);
+    tem.set(data[i].id, data[i]);
   }
   return tem;
 }
